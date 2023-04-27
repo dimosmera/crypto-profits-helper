@@ -1,0 +1,48 @@
+service: crypto-profits-helper
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: ruby2.7
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: eu-west-2
+
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# you can add packaging information here
+#package:
+#  patterns:
+#    - '!exclude-me.rb'
+#    - '!exclude-me-dir/**'
+#    - include-me.rb
+#    - include-me-dir/**
+
+functions:
+  hello:
+    handler: handler.hello
+    environment: ${file(env.json)}
+    events:
+      - schedule: rate(6 hours) #run every 6 hours
+
+plugins:
+  - serverless-ruby-layer
