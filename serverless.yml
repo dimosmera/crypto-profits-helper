@@ -38,8 +38,8 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  crypto_profits:
+    handler: app/handler.crypto_profits
     environment: ${file(env.json)}
     events:
       - schedule: rate(6 hours) #run every 6 hours

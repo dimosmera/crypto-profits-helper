@@ -2,7 +2,7 @@ require 'json'
 
 require_relative 'coingecko'
 
-def hello(event:, context:)
+def crypto_profits(event:, context:)
   puts 'Calling Coingecko'
 
   coingecko_api = CoingeckoAPI.new
