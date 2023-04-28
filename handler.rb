@@ -1,13 +1,14 @@
 require 'json'
-require 'httparty'
+
+require_relative 'coingecko'
 
 def hello(event:, context:)
-  puts "Calling GitHub"
+  puts 'Calling Coingecko'
+
+  coingecko_api = CoingeckoAPI.new
+  puts coingecko_api.prices
 
   puts "ENV['API_KEY'] = #{ENV['API_KEY']}"
-
-  body = HTTParty.get("https://github.com").body
-  puts body
 
   {
     statusCode: 200,
