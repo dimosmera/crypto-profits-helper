@@ -1,0 +1,13 @@
+# This is an example for the Flow coin. Replace with your own data
+- asset: "FLOW"
+  amount: 1.647
+  price: 3.94
+- asset: "FLOW"
+  amount: 1.503
+  price: 6.02
+- asset: "FLOW"
+  amount: 1.636
+  price: 6.55
+- asset: "FLOW"
+  amount: 2.499
+  price: 5.98
