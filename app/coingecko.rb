@@ -6,7 +6,7 @@ class CoingeckoAPI
   base_uri 'api.coingecko.com/api/v3'
 
   COINS = %w[flow ethereum solana bitcoin].freeze
-  CURRENCY = 'usd'.freeze
+  CURRENCY = 'eur'.freeze
 
   # Use this to obtain all the coins' id in order to make API calls
   def coins
