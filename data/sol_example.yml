@@ -1,0 +1,4 @@
+# This is an example for Solana. Replace with your own data
+- asset: "SOL"
+  amount: 0.13176
+  price: 74.77

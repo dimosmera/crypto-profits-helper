@@ -1,4 +1,4 @@
-# This is an example for the Flow coin. Replace with your own data
+# This is an example for Flow. Replace with your own data
 - asset: "FLOW"
   amount: 1.647
   price: 3.94
