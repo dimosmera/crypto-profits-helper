@@ -7,7 +7,6 @@
     "deploy": "serverless deploy --verbose",
     "commit": "aicommits && git push",
     "invoke": "serverless invoke --function crypto_profits"
-    
   },
   "devDependencies":{
     "serverless-ruby-layer":"^1.6.0"

@@ -21,9 +21,8 @@ def evaluate_buys(buys, current_price, profit_margin, slack_api)
   end
 end
 
+# Called every <interval> hours. Check serverless.yml
 def crypto_profits(event:, context:)
-  puts 'Calling Coingecko'
-
   coingecko_api = CoingeckoAPI.new
   current_asset_prices = coingecko_api.prices
   puts current_asset_prices
@@ -37,10 +36,6 @@ def crypto_profits(event:, context:)
   evaluate_buys(sol_buys, current_asset_prices['solana']['eur'], 0.2, slack_api)
 
   {
-    statusCode: 200,
-    body: {
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event
-    }.to_json
+    statusCode: 200
   }
 end
