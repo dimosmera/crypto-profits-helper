@@ -34,12 +34,14 @@ def crypto_profits(event:, context:)
   btc_buys = YAML.load_file('data/btc.yml')
   eth_buys = YAML.load_file('data/eth.yml')
   link_buys = YAML.load_file('data/link.yml')
+  matic_buys = YAML.load_file('data/matic.yml')
 
   evaluate_buys(flow_buys, current_asset_prices['flow']['eur'], 0.1, slack_api)
   evaluate_buys(sol_buys, current_asset_prices['solana']['eur'], 0.2, slack_api)
   evaluate_buys(btc_buys, current_asset_prices['bitcoin']['eur'], 0.3, slack_api)
   evaluate_buys(eth_buys, current_asset_prices['ethereum']['eur'], 0.3, slack_api)
   evaluate_buys(link_buys, current_asset_prices['chainlink']['eur'], 0.1, slack_api)
+  evaluate_buys(matic_buys, current_asset_prices['matic-network']['eur'], 0.15, slack_api)
 
   {
     statusCode: 200
