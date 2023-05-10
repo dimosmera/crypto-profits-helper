@@ -32,10 +32,12 @@ def crypto_profits(event:, context:)
   flow_buys = YAML.load_file('data/flow.yml')
   sol_buys = YAML.load_file('data/sol.yml')
   btc_buys = YAML.load_file('data/btc.yml')
+  eth_buys = YAML.load_file('data/eth.yml')
 
   evaluate_buys(flow_buys, current_asset_prices['flow']['eur'], 0.1, slack_api)
   evaluate_buys(sol_buys, current_asset_prices['solana']['eur'], 0.2, slack_api)
   evaluate_buys(btc_buys, current_asset_prices['bitcoin']['eur'], 0.3, slack_api)
+  evaluate_buys(eth_buys, current_asset_prices['ethereum']['eur'], 0.3, slack_api)
 
   {
     statusCode: 200
