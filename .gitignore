@@ -27,3 +27,4 @@ env.json
 # Buy data
 data/flow.yml
 data/sol.yml
+data/btc.yml
