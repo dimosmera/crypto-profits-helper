@@ -19,7 +19,7 @@ You need 4 things to run this:
 - An AWS account where the function will be deployed
 - A list of trades. Check the data folder for examples on how to format your trades
 - The [serverless framework](https://www.serverless.com/framework/docs/getting-started) installed on your machine
-- A Slack webhook URL to receive notifications. Once you have that, create an env.json file in the root of the project with the following content:
+- A Slack webhook URL to receive notifications. Once you have that, create an `env.json` file in the root of the project with the following content:
 
 ```
 {
