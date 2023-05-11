@@ -36,6 +36,7 @@ def crypto_profits(event:, context:)
   link_buys = YAML.load_file('data/link.yml')
   matic_buys = YAML.load_file('data/matic.yml')
   avax_buys = YAML.load_file('data/avax.yml')
+  near_buys = YAML.load_file('data/near.yml')
 
   evaluate_buys(flow_buys, current_asset_prices['flow']['eur'], 0.1, slack_api)
   evaluate_buys(sol_buys, current_asset_prices['solana']['eur'], 0.2, slack_api)
@@ -44,6 +45,7 @@ def crypto_profits(event:, context:)
   evaluate_buys(link_buys, current_asset_prices['chainlink']['eur'], 0.1, slack_api)
   evaluate_buys(matic_buys, current_asset_prices['matic-network']['eur'], 0.15, slack_api)
   evaluate_buys(avax_buys, current_asset_prices['avalanche-2']['eur'], 0.1, slack_api)
+  evaluate_buys(near_buys, current_asset_prices['near']['eur'], 0.1, slack_api)
 
   {
     statusCode: 200
