@@ -8,7 +8,7 @@ This tool can help you exit trades with a profit.
 
 ## How it works
 
-This tool creates a lambda function that will be triggered every 6 hours (you can change the interval). The function will check if any of your trades have reached your defined profit target and will notify you via Slack if that's the case. Then it's up to you to decide if you want to sell or not.
+We create a lambda function that will be triggered every 6 hours (you can change the interval). The function will check if any of your trades have reached your defined profit target and will notify you via Slack if that's the case. Then it's up to you to decide if you want to sell or not.
 
 Edit the `app/handler.rb` file to change the profit targets, assets tracked, etc.
 
