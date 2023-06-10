@@ -38,6 +38,7 @@ def crypto_profits(event:, context:)
   avax_buys = YAML.load_file('data/avax.yml')
   near_buys = YAML.load_file('data/near.yml')
   algo_buys = YAML.load_file('data/algo.yml')
+  doge_buys = YAML.load_file('data/doge.yml')
 
   evaluate_buys(flow_buys, current_asset_prices['flow']['eur'], 0.1, slack_api)
   evaluate_buys(link_buys, current_asset_prices['chainlink']['eur'], 0.1, slack_api)
@@ -48,6 +49,7 @@ def crypto_profits(event:, context:)
   evaluate_buys(matic_buys, current_asset_prices['matic-network']['eur'], 0.15, slack_api)
 
   evaluate_buys(sol_buys, current_asset_prices['solana']['eur'], 0.2, slack_api)
+  evaluate_buys(doge_buys, current_asset_prices['dogecoin']['eur'], 0.2, slack_api)
 
   evaluate_buys(btc_buys, current_asset_prices['bitcoin']['eur'], 0.3, slack_api)
   evaluate_buys(eth_buys, current_asset_prices['ethereum']['eur'], 0.3, slack_api)
