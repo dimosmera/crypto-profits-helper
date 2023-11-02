@@ -48,7 +48,7 @@ def crypto_profits(event:, context:)
 
   evaluate_buys(matic_buys, current_asset_prices['matic-network']['eur'], 0.15, slack_api)
 
-  evaluate_buys(sol_buys, current_asset_prices['solana']['eur'], 0.2, slack_api)
+  evaluate_buys(sol_buys, current_asset_prices['solana']['eur'], 0.25, slack_api)
   evaluate_buys(doge_buys, current_asset_prices['dogecoin']['eur'], 0.2, slack_api)
 
   evaluate_buys(btc_buys, current_asset_prices['bitcoin']['eur'], 0.3, slack_api)
