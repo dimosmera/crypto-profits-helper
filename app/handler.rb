@@ -21,6 +21,34 @@ def evaluate_buys(buys, current_price, profit_margin, slack_api)
   end
 end
 
+# Calculates the profit between 2 transactions (Buy & Sell)
+def calculate_profit(amount, price_bought_at, price_sold_at)
+  spent = amount * price_bought_at
+  earned = amount * price_sold_at
+  earned - spent
+end
+
+# Calculates profits for all transactions for a specific day
+def evaluate_profits(txs, date, asset, currency, slack_api)
+  profits = 0
+  txs.each do |tx|
+    sold_date = tx['realizedDate']
+
+    # go to next if the date is not defined
+    next if defined?(sold_date).nil?
+
+    # go to next if the date is not the one we want to evaluate
+    next if sold_date != date
+
+    # go to next if one of the prices is not not defined
+    next if defined?(tx['price']).nil? || defined?(tx['realizedPrice']).nil?
+
+    profits += calculate_profit(tx['amount'], tx['price'], tx['realizedPrice'])
+  end
+
+  slack_api.post_to_slack("On #{date} you made #{profits} #{currency} from #{asset}!")
+end
+
 # Called every <interval> hours. Check serverless.yml
 def crypto_profits(event:, context:)
   coingecko_api = CoingeckoAPI.new
@@ -53,6 +81,8 @@ def crypto_profits(event:, context:)
 
   evaluate_buys(btc_buys, current_asset_prices['bitcoin']['eur'], 0.3, slack_api)
   evaluate_buys(eth_buys, current_asset_prices['ethereum']['eur'], 0.3, slack_api)
+
+  # evaluate_profits(btc_buys, '06/12/23', 'BTC', 'EUR', slack_api)
 
   {
     statusCode: 200
