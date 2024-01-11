@@ -6,6 +6,9 @@ require_relative 'slack'
 
 # Determines if we should sell or not based on the current price and profit margin given
 def evaluate_buys(buys, current_price, profit_margin, slack_api)
+  total_amount = 0
+  asset = ''
+
   buys.each do |buying_data|
     buying_price = buying_data['price']
 
@@ -16,9 +19,15 @@ def evaluate_buys(buys, current_price, profit_margin, slack_api)
     asset = buying_data['asset']
     amount = buying_data['amount']
 
+    total_amount += amount
+
     profit_to_realize = ((current_price - buying_price) / buying_price) * 100
     slack_api.post_to_slack("#{amount} of #{asset} can now be sold for #{profit_to_realize}% profit")
   end
+
+  return if total_amount.zero?
+
+  slack_api.post_to_slack("TOTAL for #{asset}: #{total_amount} can now be sold")
 end
 
 # Calculates the profit between 2 transactions (Buy & Sell)
@@ -82,7 +91,7 @@ def crypto_profits(event:, context:)
   evaluate_buys(btc_buys, current_asset_prices['bitcoin']['eur'], 0.3, slack_api)
   evaluate_buys(eth_buys, current_asset_prices['ethereum']['eur'], 0.3, slack_api)
 
-  # evaluate_profits(btc_buys, '06/12/23', 'BTC', 'EUR', slack_api)
+  # evaluate_profits(eth_buys, '11/01/24', 'ETH', 'EUR', slack_api)
 
   {
     statusCode: 200
