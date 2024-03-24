@@ -5,7 +5,8 @@ class CoingeckoAPI
   include HTTParty
   base_uri 'api.coingecko.com/api/v3'
 
-  COINS = %w[flow ethereum solana bitcoin chainlink matic-network avalanche-2 near algorand dogecoin].freeze
+  COINS = %w[flow ethereum solana bitcoin chainlink matic-network avalanche-2 near algorand dogecoin
+             jupiter-exchange-solana].freeze
   CURRENCY = 'eur'.freeze
 
   # Use this to obtain all the coins' id in order to make API calls
