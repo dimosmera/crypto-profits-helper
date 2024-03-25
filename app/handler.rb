@@ -84,7 +84,7 @@ def crypto_profits(event:, context:)
   evaluate_buys(near_buys, current_asset_prices['near']['eur'], 0.1, slack_api)
   evaluate_buys(algo_buys, current_asset_prices['algorand']['eur'], 0.1, slack_api)
 
-  evaluate_buys(jup_buys, current_asset_prices['jupiter-exchange-solana']['eur'], 0.7, slack_api)
+  evaluate_buys(jup_buys, current_asset_prices['jupiter-exchange-solana']['eur'], 2, slack_api)
 
   evaluate_buys(matic_buys, current_asset_prices['matic-network']['eur'], 0.15, slack_api)
 
@@ -94,7 +94,7 @@ def crypto_profits(event:, context:)
   evaluate_buys(btc_buys, current_asset_prices['bitcoin']['eur'], 0.6, slack_api)
   evaluate_buys(eth_buys, current_asset_prices['ethereum']['eur'], 0.8, slack_api)
 
-  # evaluate_profits(sol_buys, '18/03/24', 'SOL', 'EUR', slack_api)
+  # evaluate_profits(jup_buys, '25/03/24', 'JUP', 'EUR', slack_api)
 
   {
     statusCode: 200
