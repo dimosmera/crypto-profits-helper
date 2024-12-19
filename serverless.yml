@@ -1,7 +1,5 @@
 service: crypto-profits-helper
 
-frameworkVersion: "2"
-
 provider:
   name: aws
   runtime: ruby2.7
